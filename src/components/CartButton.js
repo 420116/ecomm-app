@@ -1,7 +1,6 @@
+import React from "react";
 import { BsCartFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Button from "./Button";
 import classes from "./CartButton.module.css";
 
 const CartButton = (props) => {
