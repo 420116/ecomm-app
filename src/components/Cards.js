@@ -1,9 +1,8 @@
 import { BsFillCartPlusFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import "./Cards.css";
 import Button from "./Button";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { cartActions } from "../store/cartSlice";
 import ARButtons from "./ARButtons";
 const Card = (props) => {
@@ -29,7 +28,11 @@ const Card = (props) => {
             <label>Price : INR {product.price}</label>
             {/* <label></label> */}
             {product.quantity > 0 ? (
-              <ARButtons context={product} crossSign={true} quantity={product.quantity} />
+              <ARButtons
+                context={product}
+                crossSign={true}
+                quantity={product.quantity}
+              />
             ) : (
               <Button
                 onClick={addToCartFn}

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { RiScissors2Fill } from "react-icons/ri";
+import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import "./Header.css";
-import Button from "./Button";
 import CartButton from "./CartButton";
 
 function Header(props) {
@@ -48,7 +46,7 @@ function Header(props) {
                   Login
                 </NavLink>
               </li>
-             {button && <CartButton toggleCart={props.showCart} />}
+              {button && <CartButton toggleCart={props.showCart} />}
             </ul>
           </div>
         </div>
