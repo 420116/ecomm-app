@@ -1,50 +1,56 @@
-import React, { Component } from "react"
-import logo from "./logo.svg"
-import "./App.css"
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import classes from "./App.module.css";
+import Cards from "./components/Cards";
+import CartItems from "./components/CarItems";
+import Header from "./components/Header";
+import LoadingSpinner from "./components/LoadingSpinner";
+import { cartActions } from "./store/cartSlice";
+var isLoadFirst = true;
+const fetchData = async () => {
+  const getRequest = async () => {
+    const response = await fetch("https://fakestoreapi.com/products");
+    const data = await response.json();
+    return data;
+  };
 
-class LambdaDemo extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { loading: false, msg: null }
-  }
+  const productsData = await getRequest();
+  return productsData;
+};
 
-  handleClick = api => e => {
-    e.preventDefault()
+const App = () => {
+  const state = useSelector((state) => state.cart);
+  const products = state.products;
+  const dispatch = useDispatch();
+  const [isLoadSpinner, setLoadSpinner] = useState(true);
+  const [showCart, setShowCart] = useState(false);
+  const showCartHandler = () => {
+    setShowCart(!showCart);
+  };
+  fetchData().then((data) => {
+    if (isLoadFirst) {
+      dispatch(cartActions.addProducts(data));
+      setLoadSpinner(false);
+      isLoadFirst = false;
+    }
+  });
+  return (
+    <div>
+      <Header showCart={showCartHandler} />
+      {showCart && <CartItems toggleCart={showCartHandler} />}
+      {isLoadSpinner ? (
+        <div className={classes.content_spinner}>
+          <LoadingSpinner />
+        </div>
+      ) : (
+        <div className={classes.product_container}>
+          {products.map((item) => {
+            return <Cards key={item.id} {...item} />;
+          })}
+        </div>
+      )}
+    </div>
+  );
+};
 
-    this.setState({ loading: true })
-    fetch("/.netlify/functions/" + api)
-      .then(response => response.json())
-      .then(json => this.setState({ loading: false, msg: json.msg }))
-  }
-
-  render() {
-    const { loading, msg } = this.state
-
-    return (
-      <p>
-        <button onClick={this.handleClick("hello")}>{loading ? "Loading..." : "Call Lambda"}</button>
-        <button onClick={this.handleClick("async-dadjoke")}>{loading ? "Loading..." : "Call Async Lambda"}</button>
-        <br />
-        <span>{msg}</span>
-      </p>
-    )
-  }
-}
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <LambdaDemo />
-        </header>
-      </div>
-    )
-  }
-}
-
-export default App
+export default App;

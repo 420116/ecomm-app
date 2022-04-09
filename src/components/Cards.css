@@ -1,0 +1,131 @@
+.card__section {
+  padding: 100px 0 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fafafa;
+}
+
+.btn_cart {
+  flex-direction: row;
+  width: 100%;
+}
+
+.card__container-card {
+  background: linear-gradient(45deg, #ffffff 0%, #ffffff 100%);
+  box-shadow: 0 6px 20px rgb(65 65 65 / 20%);
+  width: 280px;
+  height: 400px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.card__container-card:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-out;
+  color: #1c2237;
+}
+
+.card__container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.card__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 0 auto;
+}
+
+.card__heading {
+  color: #1c2237;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.card__para {
+  color: #1c2237;
+  margin-bottom: 25px;
+  font-size: 20px;
+  max-width: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.card__container-cardInfo {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  align-items: center;
+}
+
+.card__container-cardInfo h3 {
+  margin-bottom: 5px;
+  font-size: 24px;
+}
+.card__container-cardInfo label {
+  font-size: 15px;
+  display: block;
+  width: 100%;
+  padding: 1rem;
+}
+
+.card__container-cardInfo p {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+  color: black;
+}
+
+.card__container-features {
+  margin: 16px 0 32px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  margin: 24px 0;
+}
+
+.card__image {
+  margin: 10px;
+  height: 130px;
+}
+
+@media screen and (max-width: 960px) {
+  .card__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+  }
+  /* .card__container-card {
+    width: 90%;
+  } */
+
+  .card__wrapper {
+    margin: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card__container-card:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-out;
+    color: #1c2237;
+  }
+
+  /* .card__container-card Button {
+    width: 90%;
+  } */
+}
