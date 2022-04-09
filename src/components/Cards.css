@@ -106,11 +106,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90%;
   }
-  /* .card__container-card {
-    width: 90%;
-  } */
+
+  .card__container-card {
+    background: linear-gradient(45deg, #ffffff 0%, #ffffff 100%);
+    width: 248px;
+    height: 350px;
+    border: 1px solid #ededed;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0px;
+    margin: 0px;
+    box-shadow: none;
+  }
 
   .card__wrapper {
     margin: 0 30px;
