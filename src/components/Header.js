@@ -12,7 +12,7 @@ function Header(props) {
   };
 
   const [button, setButton] = useState(false);
-  const closeMobileMenu = () => setClick(false);
+  //const closeMobileMenu = () => setClick(false);
   const showButton = () => {
     setButton(!(window.innerWidth <= 960));
   };

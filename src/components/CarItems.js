@@ -8,11 +8,7 @@ const CartItems = (props) => {
   const { items, totalAmount } = useSelector((state) => {
     return state.cart;
   });
-  //const { title, quantity, total, price,id } = props.item;
-  //const dispatch = useDispatch();
-  const removeItemHandler = () => {
-    //dispatch(cartActions.removeItemFromCart(id));
-  };
+  
 
   const closeModal = () => {
     props.toggleCart();
@@ -23,7 +19,6 @@ const CartItems = (props) => {
     // }));
   };
 
-  const totalPrice = 0;
 
   return (
     <div className={classes.modal}>
