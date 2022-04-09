@@ -31,9 +31,11 @@ function Header(props) {
             <NavLink className="navbar-logo" to="/">
               Shopping Cart
             </NavLink>
-            <div className="menu-icon" onClick={handleClickFn}>
+            <div className="menu-icon">
               <CartButton toggleCart={props.showCart} />
-              {click ? <FaTimes /> : <FaBars />}
+              <div onClick={handleClickFn}>
+                {click ? <FaTimes /> : <FaBars />}
+              </div>
             </div>
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
