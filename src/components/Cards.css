@@ -133,11 +133,11 @@
     align-items: center;
   }
 
-  .card__container-card:hover {
+  /* .card__container-card:hover {
     transform: scale(1.05);
     transition: all 0.3s ease-out;
     color: #1c2237;
-  }
+  } */
 
   /* .card__container-card Button {
     width: 90%;
