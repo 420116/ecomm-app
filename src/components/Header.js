@@ -32,7 +32,7 @@ function Header(props) {
               Shopping Cart
             </NavLink>
             <div className="menu-icon">
-              <CartButton toggleCart={props.showCart} />
+              <CartButton />
               <div onClick={handleClickFn}>
                 {click ? <FaTimes /> : <FaBars />}
               </div>
@@ -48,7 +48,7 @@ function Header(props) {
                   Login
                 </NavLink>
               </li>
-              {button && <CartButton toggleCart={props.showCart} />}
+              {button && <CartButton />}
             </ul>
           </div>
         </div>

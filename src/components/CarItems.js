@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ARButtons from "./ARButtons";
 import Button from "./Button";
 import classes from "./CartItems.module.css";
@@ -8,17 +8,11 @@ const CartItems = (props) => {
   const { items, totalAmount } = useSelector((state) => {
     return state.cart;
   });
-  
 
+  const dispatch = useDispatch();
   const closeModal = () => {
-    props.toggleCart();
-    // dispatch(cartActions.addItemToCart({
-    //   id,
-    //   title,
-    //   price,
-    // }));
+    dispatch(cartActions.toggleCart());
   };
-
 
   return (
     <div className={classes.modal}>

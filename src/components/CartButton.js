@@ -1,13 +1,14 @@
 import React from "react";
 import { BsCartFill } from "react-icons/bs";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../store/cartSlice";
 import classes from "./CartButton.module.css";
 
 const CartButton = (props) => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-
+  const dispatch = useDispatch();
   const toggleCartHandler = () => {
-    props.toggleCart();
+    dispatch(cartActions.toggleCartHandler());
   };
   return (
     <div onClick={toggleCartHandler} className={classes.cartBtn}>

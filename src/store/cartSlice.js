@@ -5,8 +5,10 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
     isLogged: true,
+    isPending: true,
     totalQuantity: 0,
     totalAmount: 0,
+    showCart: false,
     products: [
       {
         id: "m1",
@@ -72,6 +74,12 @@ const cartSlice = createSlice({
       } else {
         item.quantity = 0;
       }
+    },
+    showNotification(state, action) {
+      state.isPending = action.payload.isPending;
+    },
+    toggleCart(state) {
+      state.showCart = !state.showCart;
     },
   },
 });
